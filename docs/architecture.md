@@ -1,4 +1,4 @@
-a# VulcanOS
+﻿# VulcanOS architecture
 
 ## Source layout
 
@@ -20,10 +20,10 @@ The compiler finds `include/` by walking up from each source file, so nested mod
 
 ## Build
 
-From the project root in Vulcan's terminal:
+From the `vulcanos` folder in Vulcan's terminal (or open `os/build.run`):
 
 ```
-vcc src/VulcanOS/boot/startup.asm src/VulcanOS/drivers/keyboard.asm src/VulcanOS/drivers/mouse.asm src/VulcanOS/kernel/kernel.c src/VulcanOS/kernel/console.c src/VulcanOS/mm/heap.c src/VulcanOS/drivers/video/graphics.c -o VulcanOS.exe
+vcc os/boot/startup.asm os/drivers/keyboard.asm os/drivers/mouse.asm os/kernel/kernel.c os/kernel/console.c os/mm/heap.c os/drivers/video/graphics.c -o VulcanOS.exe
 ./VulcanOS.exe
 ```
 
@@ -66,7 +66,7 @@ unedited older `vos` preset that colored only black, red, and white is upgraded 
 The OS header `mouse.h` documents the byte-wide mouse ports: OUT `0x22` selects a snapshot byte,
 IN `0x23` reads it, and IN `0x24` returns the captured button number (0 none,
 1 left, 2 middle, 3 right). OUT command 0 snapshots two IEEE-754 binary32 values
-in little-endian order (X bytes 0–3, then Y bytes 4–7); commands 1–7 select the
+in little-endian order (X bytes 0â€“3, then Y bytes 4â€“7); commands 1â€“7 select the
 corresponding byte. Coordinates are normalized to [-1, 1], with X=-1 at the left,
 X=+1 at the right, Y=+1 at the top, and Y=-1 at the bottom. The display clamps
 pointer positions in the letterbox area to the nearest image edge. Binary32 keeps
