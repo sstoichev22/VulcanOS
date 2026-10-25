@@ -1,0 +1,7 @@
+boot/startup.asm
+drivers/keyboard.asm
+drivers/mouse.asm
+drivers/video/graphics.c
+kernel/console.c
+kernel/kernel.c
+mm/heap.c
